@@ -20,62 +20,46 @@
   <line x1="0" y1="70" x2="800" y2="70" stroke="#334155" stroke-width="2"/>
   <line x1="0" y1="74" x2="800" y2="74" stroke="#1E293B" stroke-dasharray="8 8" stroke-width="1.5"/>
 
-  <!-- Static Text (Fades in after smoke clears, positioned to the left of where Batman lands) -->
+  <!-- Static Text (Fades in to the left after Batman lands at X=240) -->
   <g>
-    <!-- Text fades in at 2.4s (30% keyTime), visible till 6.4s (80% keyTime) -->
+    <!-- Text fades in at 2.8s (35%), stays visible until 6.5s (81.25%), then resets -->
     <animate attributeName="opacity"
              values="0; 0; 1; 1; 0; 0"
-             keyTimes="0; 0.30; 0.35; 0.80; 0.85; 1"
+             keyTimes="0; 0.35; 0.40; 0.8125; 0.875; 1"
              dur="8s" repeatCount="indefinite"/>
-    <text x="350" y="42" fill="url(#textGrad)" font-size="24" font-weight="900" letter-spacing="4" text-anchor="end" font-family="'Share Tech Mono', monospace">ANISH REDDY</text>
-    <text x="350" y="58" fill="#64748B" font-size="10" font-weight="bold" letter-spacing="3" text-anchor="end" font-family="'Share Tech Mono', monospace">AI &amp; MACHINE LEARNING ENGINEER</text>
+    <text x="210" y="42" fill="url(#textGrad)" font-size="24" font-weight="900" letter-spacing="4" text-anchor="end" font-family="'Share Tech Mono', monospace">ANISH REDDY</text>
+    <text x="210" y="58" fill="#64748B" font-size="10" font-weight="bold" letter-spacing="3" text-anchor="end" font-family="'Share Tech Mono', monospace">AI &amp; MACHINE LEARNING ENGINEER</text>
   </g>
 
-  <!-- Brake Smoke Burst (Triggers at X=260 when Batmobile stops at 1.44s) -->
-  <g transform="translate(240, 60)">
-    <!-- Smoke puff A (large, center-left) -->
-    <circle cx="0" cy="0" r="2" fill="#475569" opacity="0">
-      <animate attributeName="r" values="2;28;0" dur="8s" keyTimes="0; 0.18; 0.25; 0.36; 1" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0; 0.85; 0.4; 0" dur="8s" keyTimes="0; 0.18; 0.25; 0.36; 1" repeatCount="indefinite"/>
-      <animate attributeName="cx" values="0; -15; -35" dur="8s" keyTimes="0; 0.18; 0.25; 0.36; 1" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="0; -8; -15" dur="8s" keyTimes="0; 0.18; 0.25; 0.36; 1" repeatCount="indefinite"/>
-    </circle>
-    <!-- Smoke puff B (medium, rising) -->
-    <circle cx="5" cy="5" r="2" fill="#64748B" opacity="0">
-      <animate attributeName="r" values="2;22;0" dur="8s" keyTimes="0; 0.19; 0.27; 0.38; 1" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0; 0.75; 0.3; 0" dur="8s" keyTimes="0; 0.19; 0.27; 0.38; 1" repeatCount="indefinite"/>
-      <animate attributeName="cx" values="5; -5; -15" dur="8s" keyTimes="0; 0.19; 0.27; 0.38; 1" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="5; -12; -25" dur="8s" keyTimes="0; 0.19; 0.27; 0.38; 1" repeatCount="indefinite"/>
-    </circle>
-    <!-- Smoke puff C (smaller, right dispersion) -->
-    <circle cx="-5" cy="-5" r="2" fill="#334155" opacity="0">
-      <animate attributeName="r" values="2;18;0" dur="8s" keyTimes="0; 0.20; 0.28; 0.39; 1" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0; 0.65; 0.2; 0" dur="8s" keyTimes="0; 0.20; 0.28; 0.39; 1" repeatCount="indefinite"/>
-      <animate attributeName="cx" values="-5; -25; -45" dur="8s" keyTimes="0; 0.20; 0.28; 0.39; 1" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="-5; -5; -8" dur="8s" keyTimes="0; 0.20; 0.28; 0.39; 1" repeatCount="indefinite"/>
-    </circle>
-  </g>
+  <!-- Grappling Gun Wire (Fires from Batman's position at X=555 to anchor point at X=240) -->
+  <line x1="555" y1="56" x2="555" y2="56" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3" opacity="0">
+    <!-- Shoots from right to left between 2.0s (25%) and 2.2s (27.5%) -->
+    <animate attributeName="x2" values="555; 555; 240; 240; 240" keyTimes="0; 0.25; 0.275; 0.3625; 1" dur="8s" repeatCount="indefinite"/>
+    <!-- Wire stays active while Batman swings, then fades away -->
+    <animate attributeName="opacity" values="0; 0; 0.8; 0.8; 0; 0" keyTimes="0; 0.25; 0.255; 0.3625; 0.365; 1" dur="8s" repeatCount="indefinite"/>
+  </line>
 
-  <!-- Batmobile Group (Coordinates are relative to car position) -->
+  <!-- Batmobile Group (Parks on the far right, then explodes) -->
   <g>
-    <!-- Non-linear velocity: screeches in fast (0-0.18), waits, zooms off (0.88-1) -->
+    <!-- Translation: drives from offscreen left (-150) to rightmost (520) by 1.5s -->
     <animateTransform attributeName="transform" type="translate"
-                      values="-150 28; 260 28; 260 28; 260 28; 950 28"
-                      keyTimes="0; 0.18; 0.80; 0.88; 1"
+                      values="-150 28; 520 28; 520 28; 520 28"
+                      keyTimes="0; 0.1875; 0.80; 1"
                       calcMode="spline"
-                      keySplines="0.1 0.8 0.2 1; 0 0 1 1; 0 0 1 1; 0.8 0 0.9 0.3"
+                      keySplines="0.1 0.8 0.2 1; 0 0 1 1; 0 0 1 1"
                       dur="8s" repeatCount="indefinite" />
+                      
+    <!-- Batmobile opacity: Explodes at 2.7s (33.75%) and vaporizes by 2.9s (36.25%) -->
+    <animate attributeName="opacity"
+             values="1; 1; 0; 0"
+             keyTimes="0; 0.3375; 0.3625; 1"
+             dur="8s" repeatCount="indefinite"/>
 
-    <!-- Tail flame booster (Active when moving) -->
-    <path d="M-5 27 L-25 30 L-5 33 Z" fill="url(#flameGrad)">
-      <animate attributeName="opacity"
-               values="1; 0; 0; 1"
-               keyTimes="0; 0.18; 0.88; 1"
-               dur="8s" repeatCount="indefinite"/>
-    </path>
+    <!-- Tail flame booster (Active when driving) -->
+    <path d="M-5 27 L-25 30 L-5 33 Z" fill="url(#flameGrad)"/>
 
     <!-- Continuous exhaust smoke (Active when driving) -->
-    <circle cx="-10" cy="30" r="3" fill="#334155" opacity="0">
+    <circle cx="-10" cy="30" r="3" fill="#334155" opacity="0.8">
       <animate attributeName="r" values="3;10;0" dur="0.8s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.8;0.3;0" dur="0.8s" repeatCount="indefinite"/>
       <animate attributeName="cx" values="-10;-25;-40" dur="0.8s" repeatCount="indefinite"/>
@@ -91,37 +75,61 @@
     <circle cx="22" cy="42" r="4" fill="#334155"/>
     <circle cx="75" cy="42" r="8" fill="#020617" stroke="#475569" stroke-width="2"/>
     <circle cx="75" cy="42" r="4" fill="#334155"/>
+  </g>
 
-    <!-- Batman Figure (Ejects, lands at Rel X=110, Rel Y=27 standing next to the text, facing left) -->
-    <g>
-      <!-- Parabolic jump relative translation -->
-      <animateTransform attributeName="transform" type="translate"
-                        values="35 28; 35 28; 72 -10; 110 27; 110 27; 72 -10; 35 28; 35 28"
-                        keyTimes="0; 0.25; 0.28; 0.31; 0.80; 0.83; 0.86; 1"
-                        dur="8s" repeatCount="indefinite"/>
+  <!-- Absolute Coordinate Batman Group (Zip-lines from cockpit at X=555 to land at X=240 facing left) -->
+  <g>
+    <!-- Grappling slide: ejects at 2.0s, swings across, lands at X=240, Y=55 at 2.8s -->
+    <animateTransform attributeName="transform" type="translate"
+                      values="555 56; 555 56; 555 56; 397 25; 240 55; 240 55; 240 55; 240 55"
+                      keyTimes="0; 0.25; 0.275; 0.3125; 0.35; 0.8125; 0.875; 1"
+                      dur="8s" repeatCount="indefinite"/>
 
-      <!-- Batman opacity - hides when inside car to avoid clipping, reveals on eject -->
-      <animate attributeName="opacity"
-               values="0; 0; 1; 1; 0; 0"
-               keyTimes="0; 0.25; 0.27; 0.83; 0.86; 1"
-               dur="8s" repeatCount="indefinite"/>
+    <!-- Batman opacity: hidden inside car cockpit initially, reveals on eject, resets at end -->
+    <animate attributeName="opacity"
+             values="0; 0; 1; 1; 1; 1; 0; 0"
+             keyTimes="0; 0.245; 0.25; 0.275; 0.8125; 0.82; 0.875; 1"
+             dur="8s" repeatCount="indefinite"/>
 
-      <!-- Batman Artwork Silhouette (facing left) -->
-      <!-- Head and ears -->
-      <path d="M -3 -8 L -3 -12 L -1 -10 L 1 -10 L 3 -12 L 3 -8 Z" fill="#020617"/>
-      <circle cx="0" cy="-6" r="3" fill="#020617"/>
-      <!-- Glowing Eyes (Facing Left) -->
-      <polygon points="-2.2,-7.2 -1.2,-6.7 -1.2,-7.2" fill="#FFFFFF"/>
-      <polygon points="-0.2,-7.2 0.8,-6.7 0.8,-7.2" fill="#FFFFFF"/>
-      <!-- Cape (Flares out slightly) -->
-      <path d="M -6 -4 L 6 -4 L 12 15 L 4 12 L 0 16 L -4 12 L -8 15 Z" fill="#0F172A" stroke="#334155" stroke-width="0.5"/>
-      <!-- Suit -->
-      <rect x="-4" y="-3" width="8" height="11" rx="1.5" fill="#1E293B" stroke="#475569" stroke-width="0.5"/>
-      <!-- Utility Belt -->
-      <rect x="-4" y="3.5" width="8" height="1.5" fill="#64748B"/>
-      <!-- Legs -->
-      <rect x="-3.2" y="8" width="2.5" height="8" fill="#020617"/>
-      <rect x="0.7" y="8" width="2.5" height="8" fill="#020617"/>
-    </g>
+    <!-- Batman Artwork Silhouette -->
+    <!-- Head and ears -->
+    <path d="M -3 -8 L -3 -12 L -1 -10 L 1 -10 L 3 -12 L 3 -8 Z" fill="#020617"/>
+    <circle cx="0" cy="-6" r="3" fill="#020617"/>
+    <!-- White glowing detective eyes -->
+    <polygon points="-2.2,-7.2 -1.2,-6.7 -1.2,-7.2" fill="#FFFFFF"/>
+    <polygon points="-0.2,-7.2 0.8,-6.7 0.8,-7.2" fill="#FFFFFF"/>
+    <!-- Cape (Flares out dynamically) -->
+    <path d="M -6 -4 L 6 -4 L 12 15 L 4 12 L 0 16 L -4 12 L -8 15 Z" fill="#0F172A" stroke="#334155" stroke-width="0.5"/>
+    <!-- Suit -->
+    <rect x="-4" y="-3" width="8" height="11" rx="1.5" fill="#1E293B" stroke="#475569" stroke-width="0.5"/>
+    <!-- Utility Belt -->
+    <rect x="-4" y="3.5" width="8" height="1.5" fill="#64748B"/>
+    <!-- Legs -->
+    <rect x="-3.2" y="8" width="2.5" height="8" fill="#020617"/>
+    <rect x="0.7" y="8" width="2.5" height="8" fill="#020617"/>
+  </g>
+
+  <!-- Explosion Fireballs (Triggered at X=570, Y=48 when car evaporates at 2.7s/33.75%) -->
+  <g transform="translate(570, 48)">
+    <!-- Red Primary Blast Wave -->
+    <circle cx="0" cy="0" r="0" fill="#FF3D00" opacity="0">
+      <animate attributeName="r" values="0; 0; 45; 65; 0" keyTimes="0; 0.3375; 0.3625; 0.45; 1" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0; 0.95; 0.6; 0" keyTimes="0; 0.3375; 0.3625; 0.45; 1" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Orange Mid-Layer Explosion -->
+    <circle cx="-12" cy="-6" r="0" fill="#FF9100" opacity="0">
+      <animate attributeName="r" values="0; 0; 35; 55; 0" keyTimes="0; 0.34; 0.37; 0.46; 1" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0; 0.9; 0.5; 0" keyTimes="0; 0.34; 0.37; 0.46; 1" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Yellow Core Fireball -->
+    <circle cx="10" cy="4" r="0" fill="#FFEA00" opacity="0">
+      <animate attributeName="r" values="0; 0; 25; 38; 0" keyTimes="0; 0.345; 0.375; 0.47; 1" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0; 0.95; 0.4; 0" keyTimes="0; 0.345; 0.375; 0.47; 1" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Expanding White Shockwave Ring -->
+    <circle cx="0" cy="0" r="0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0">
+      <animate attributeName="r" values="0; 0; 90; 0" keyTimes="0; 0.3375; 0.42; 1" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0; 0; 0.8; 0" keyTimes="0; 0.3375; 0.42; 1" dur="8s" repeatCount="indefinite"/>
+    </circle>
   </g>
 </svg>
