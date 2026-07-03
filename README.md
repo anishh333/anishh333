@@ -163,20 +163,15 @@ SYS.STATUS: Active Operations / Vigilant Coding
   <table border="0" cellpadding="0" cellspacing="5">
     <tr>
       <td>
-        <img height="175" src="https://github-readme-stats.vercel.app/api?username=anishh333&show_icons=true&title_color=FFC107&icon_color=FFC107&text_color=A0A0A0&bg_color=0B0F19&hide_border=true" alt="Anish's GitHub Stats"/>
+        <img height="175" src="https://github-stats-extended.vercel.app/api?username=anishh333&show_icons=true&title_color=FFC107&icon_color=FFC107&text_color=A0A0A0&bg_color=0B0F19&hide_border=true" alt="Anish's GitHub Stats"/>
       </td>
       <td>
-        <img height="175" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anishh333&layout=compact&title_color=FFC107&icon_color=FFC107&text_color=A0A0A0&bg_color=0B0F19&hide_border=true" alt="Anish's Top Languages"/>
+        <img height="175" src="https://github-stats-extended.vercel.app/api/top-langs/?username=anishh333&layout=compact&title_color=FFC107&icon_color=FFC107&text_color=A0A0A0&bg_color=0B0F19&hide_border=true" alt="Anish's Top Languages"/>
       </td>
     </tr>
     <tr>
       <td colspan="2" align="center" style="padding-top: 10px;">
         <img src="https://streak-stats.demolab.com?user=anishh333&background=0B0F19&fire=FFC107&ring=FFC107&currPlay=FFC107&text=A0A0A0&stroke=0B0F19&hide_border=true" alt="Streak Stats"/>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center" style="padding-top: 10px;">
-        <img src="https://github-profile-trophy.vercel.app/?username=anishh333&theme=dark&no-frame=true&margin-w=10&margin-h=10" alt="Trophy Matrix" />
       </td>
     </tr>
     <tr>
@@ -207,13 +202,13 @@ SYS.STATUS: Active Operations / Vigilant Coding
 
 <p align="center">
   <a href="https://linkedin.com" target="_blank">
-    <img src="https://img.shields.io/badge/LINKEDIN-0B0F19?style=flat-square&logo=linkedin&logoColor=FFC107" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-0B0F19?style=flat-square&logo=LinkedIn&logoColor=FFC107" alt="LinkedIn" />
   </a>
   <a href="mailto:your-email@example.com" target="_blank">
-    <img src="https://img.shields.io/badge/GMAIL-0B0F19?style=flat-square&logo=gmail&logoColor=FFC107" alt="Gmail" />
+    <img src="https://img.shields.io/badge/Gmail-0B0F19?style=flat-square&logo=Gmail&logoColor=FFC107" alt="Gmail" />
   </a>
   <a href="https://github.com/anishh333" target="_blank">
-    <img src="https://img.shields.io/badge/GITHUB-0B0F19?style=flat-square&logo=github&logoColor=FFC107" alt="GitHub" />
+    <img src="https://img.shields.io/badge/GitHub-0B0F19?style=flat-square&logo=GitHub&logoColor=FFC107" alt="GitHub" />
   </a>
 </p>
 
