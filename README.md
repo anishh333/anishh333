@@ -138,13 +138,11 @@ Deep Learning based sentiment classification using Recurrent Neural Networks.
 
 ---
 
-# 🐍 Contribution Snake
+## 🐍 Contribution Snake
 
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/anishh333/anishh333/output/github-contribution-grid-snake-dark.svg"/>
-
-</div>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/anishh333/anishh333/output/github-contribution-grid-snake-dark.svg" alt="Contribution Snake" />
+</p>
 
 > **Note:** You'll need to set up a GitHub Action to generate the snake animation.
 
